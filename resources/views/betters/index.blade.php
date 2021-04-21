@@ -31,7 +31,7 @@
                     <td>{{ $better->name }}</td>
                     <td>{{ $better->surname }}</td>
                     <td>{{ $better->bet }}</td>
-                    <td>{{ $better->horse->name }}</td>
+                    <td>{{ $better->horse['name'] }}</td>
                     <td>
                         <form action={{ route('better.destroy', $better->id) }} method="POST">
                             <a class="btn btn-success" href={{ route('better.edit', $better->id) }}>Edit</a>
