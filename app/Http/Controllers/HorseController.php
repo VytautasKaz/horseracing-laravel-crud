@@ -35,10 +35,15 @@ class HorseController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->runs < $request->wins) {
+            return redirect()->route('horse.create')->with('status_error', 'Horse addition failed. Number of runs cannot be greater than number of wins.');
+        }
         $horse = new Horse();
         $horse->fill($request->all());
         $horse->save();
-        return redirect()->route('horse.index');
+        return ($horse->save() == 1)
+            ? redirect()->route('horse.index')->with('status_success', 'Horse added successfully!')
+            : redirect()->route('horse.index')->with('status_error', 'Horse addition failed.');
     }
 
     /**
@@ -72,9 +77,13 @@ class HorseController extends Controller
      */
     public function update(Request $request, Horse $horse)
     {
+        if ($request->runs < $request->wins) {
+            return redirect()->route('horse.index')->with('status_error', 'Horse update failed. Number of runs cannot be greater than number of wins.');
+        }
         $horse->fill($request->all());
-        $horse->save();
-        return redirect()->route('horse.index');
+        return ($horse->save() == 1)
+            ? redirect()->route('horse.index')->with('status_success', 'Horse updated successfully!')
+            : redirect()->route('horse.index')->with('status_error', 'Horse update failed.');
     }
 
     /**
@@ -86,6 +95,6 @@ class HorseController extends Controller
     public function destroy(Horse $horse)
     {
         $horse->delete();
-        return redirect()->route('horse.index');
+        return redirect()->route('horse.index')->with('status_success', 'Horse removed from database successfully!');
     }
 }

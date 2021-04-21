@@ -13,6 +13,11 @@
                 <a class="btn btn-success" href={{ route('better.index') }}>Show All</a>
             </form>
         </div>
+        @if (session('status_success'))
+            <p style="color: green"><b>{{ session('status_success') }}</b></p>
+        @else
+            <p style="color: red"><b>{{ session('status_error') }}</b></p>
+        @endif
         <table class="table">
             <tr>
                 <th>Name</th>

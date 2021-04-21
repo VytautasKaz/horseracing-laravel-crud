@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
     <div class="card-body container">
+        @if (session('status_success'))
+            <p style="color: green"><b>{{ session('status_success') }}</b></p>
+        @else
+            <p style="color: red"><b>{{ session('status_error') }}</b></p>
+        @endif
         <table class="table">
             <tr>
                 <th>Name</th>
@@ -16,7 +21,7 @@
                     <td>{{ $horse->runs }}</td>
                     <td>{{ $horse->wins }}</td>
                     <td>{{ number_format(($horse->wins / $horse->runs) * 100, 2) }}</td>
-                    <td>{{ $horse->about }}</td>
+                    <td>{!! $horse->about !!}</td>
                     <td>
                         <form action={{ route('horse.destroy', $horse->id) }} method="POST">
                             <a class="btn btn-success" href={{ route('horse.edit', $horse->id) }}>Edit</a>

@@ -3,6 +3,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if (session('status_success'))
+                    <p style="color: green"><b>{{ session('status_success') }}</b></p>
+                @else
+                    <p style="color: red"><b>{{ session('status_error') }}</b></p>
+                @endif
                 <div class="card">
                     <div class="card-header">Add a new horse:</div>
                     <div class="card-body">
@@ -31,4 +36,10 @@
             </div>
         </div>
     </div>
+    <script>
+        tinymce.init({
+            selector: '#mce'
+        });
+
+    </script>
 @endsection
