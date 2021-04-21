@@ -27,7 +27,7 @@
                             </div>
                             <div class="form-group">
                                 <label>About:</label>
-                                <textarea id="mce" name="about" rows=10 cols=100 class="form-control" required></textarea>
+                                <textarea id="mce" name="about" rows=10 cols=100 class="form-control"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -36,10 +36,4 @@
             </div>
         </div>
     </div>
-    <script>
-        tinymce.init({
-            selector: '#mce'
-        });
-
-    </script>
 @endsection
