@@ -13,9 +13,14 @@ class BetterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('betters.index', ['betters' => Better::orderBy('bet')->get(), 'horses' => Horse::orderBy('name')->get()]);
+        if (isset($request->horse_id) && $request->horse_id !== 0)
+            $betters = Better::where('horse_id', $request->horse_id)->orderBy('bet')->get();
+        else
+            $betters = Better::orderBy('bet')->get();
+
+        return view('betters.index', ['betters' => $betters, 'horses' => Horse::orderBy('name')->get()]);
     }
 
     /**
@@ -61,7 +66,7 @@ class BetterController extends Controller
      */
     public function edit(Better $better)
     {
-        //
+        return view('betters.edit', ['better' => $better, 'horses' => Horse::orderBy('name')->get()]);
     }
 
     /**
@@ -73,7 +78,9 @@ class BetterController extends Controller
      */
     public function update(Request $request, Better $better)
     {
-        //
+        $better->fill($request->all());
+        $better->save();
+        return redirect()->route('better.index');
     }
 
     /**
@@ -84,6 +91,7 @@ class BetterController extends Controller
      */
     public function destroy(Better $better)
     {
-        //
+        $better->delete();
+        return redirect()->route('better.index');
     }
 }
