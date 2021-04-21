@@ -11,15 +11,24 @@
                             <div class="form-group">
                                 <label>Name:</label>
                                 <input type="text" name="name" class="form-control" value="{{ $better->name }}" required>
+                                @error('name')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Surname:</label>
                                 <input type="text" name="surname" class="form-control" value="{{ $better->surname }}"
                                     required>
+                                @error('surname')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Bet(€):</label>
                                 <input type="number" name="bet" class="form-control" value="{{ $better->bet }}" required>
+                                @error('bet')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Horse:</label>

@@ -41,6 +41,11 @@ class BetterController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|max:32',
+            'surname' => 'required|max:32',
+            'bet' => 'required'
+        ]);
         $better = new Better();
         $better->fill($request->all());
         $better->save();
@@ -78,6 +83,11 @@ class BetterController extends Controller
      */
     public function update(Request $request, Better $better)
     {
+        $this->validate($request, [
+            'name' => 'required|max:32',
+            'surname' => 'required|max:32',
+            'bet' => 'required'
+        ]);
         $better->fill($request->all());
         $better->save();
         return redirect()->route('better.index');

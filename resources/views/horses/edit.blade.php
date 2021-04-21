@@ -16,14 +16,23 @@
                             <div class="form-group">
                                 <label>Name:</label>
                                 <input type="text" name="name" class="form-control" value="{{ $horse->name }}" required>
+                                @error('name')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Runs:</label>
                                 <input type="number" name="runs" class="form-control" value="{{ $horse->runs }}" required>
+                                @error('runs')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Wins:</label>
                                 <input type="number" name="wins" class="form-control" value="{{ $horse->wins }}" required>
+                                @error('wins')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>About:</label>
