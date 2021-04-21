@@ -18,7 +18,7 @@ class HorseSeeder extends Seeder
         $horse->name = "Jordan";
         $horse->runs = 6;
         $horse->wins = 6;
-        $horse->about = "Should have at least 8, if he didn't retire.";
+        $horse->about = "Would have at least 8, if he didn't retire.";
         $horse->save();
 
         $horse2 = new Horse();
