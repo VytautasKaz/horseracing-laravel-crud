@@ -18,7 +18,7 @@ class CreateHorsesTable extends Migration
             $table->string('name', 100);
             $table->tinyInteger('runs');
             $table->tinyInteger('wins');
-            $table->text('about');
+            $table->text('about')->nullable();
             $table->timestamps();
         });
     }

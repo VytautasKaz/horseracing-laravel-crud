@@ -18,10 +18,10 @@ class CreateBettersTable extends Migration
             $table->string('name', 100);
             $table->string('surname', 150);
             $table->decimal('bet');
-            $table->unsignedBigInteger('horse_id');
+            $table->unsignedBigInteger('horse_id')->nullable();
             $table->foreign('horse_id')
                 ->references('id')->on('horses')
-                ->onDelete('cascade')
+                ->onDelete('SET NULL')
                 ->onUpdate('restrict');
             $table->timestamps();
         });
