@@ -10,19 +10,19 @@
                             @csrf
                             <div class="form-group">
                                 <label>Name:</label>
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="name" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Runs:</label>
-                                <input type="number" name="runs" class="form-control">
+                                <input type="number" name="runs" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Wins:</label>
-                                <input type="number" name="wins" class="form-control">
+                                <input type="number" name="wins" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>About:</label>
-                                <textarea id="mce" name="about" rows=10 cols=100 class="form-control"></textarea>
+                                <textarea id="mce" name="about" rows=10 cols=100 class="form-control" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

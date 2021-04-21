@@ -23,6 +23,11 @@ Route::get('/', function () {
 Route::resource('horse', HorseController::class);
 Route::resource('better', BetterController::class);
 
+Route::middleware(['auth'])->group(function () {
+    Route::resource('horse', HorseController::class);
+    Route::resource('better', BetterController::class);
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
