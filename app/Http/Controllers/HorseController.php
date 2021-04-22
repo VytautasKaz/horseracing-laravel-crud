@@ -37,8 +37,8 @@ class HorseController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:32',
-            'runs' => 'required',
-            'wins' => 'required',
+            'runs' => 'required|gte:0',
+            'wins' => 'required|gte:0'
         ]);
         if ($request->runs < $request->wins) {
             return redirect()->route('horse.create')->with('status_error', 'Horse addition failed. Number of runs cannot be greater than number of wins.');
@@ -84,8 +84,8 @@ class HorseController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:32',
-            'runs' => 'required',
-            'wins' => 'required',
+            'runs' => 'required|gte:0',
+            'wins' => 'required|gte:0'
         ]);
         if ($request->runs < $request->wins) {
             return redirect()->route('horse.index')->with('status_error', 'Horse update failed. Number of runs cannot be greater than number of wins.');

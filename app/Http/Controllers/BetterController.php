@@ -44,7 +44,7 @@ class BetterController extends Controller
         $this->validate($request, [
             'name' => 'required|max:32',
             'surname' => 'required|max:32',
-            'bet' => 'required'
+            'bet' => 'required|gte:0'
         ]);
         $better = new Better();
         $better->fill($request->all());
@@ -86,7 +86,7 @@ class BetterController extends Controller
         $this->validate($request, [
             'name' => 'required|max:32',
             'surname' => 'required|max:32',
-            'bet' => 'required'
+            'bet' => 'required|gte:0'
         ]);
         $better->fill($request->all());
         $better->save();
