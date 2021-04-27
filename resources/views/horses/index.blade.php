@@ -23,8 +23,8 @@
                     <td>{{ number_format(($horse->wins / $horse->runs) * 100, 2) }}</td>
                     <td>{!! $horse->about !!}</td>
                     <td>
-                        <form action={{ route('horse.destroy', $horse->id) }} method="POST">
-                            <a class="btn btn-success" href={{ route('horse.edit', $horse->id) }}>Edit</a>
+                        <form action="{{ route('horse.destroy', $horse->id) }}" method="POST">
+                            <a class="btn btn-success" href="{{ route('horse.edit', $horse->id) }}">Edit</a>
                             @csrf @method('delete')
                             <input type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"
                                 value="Delete" />

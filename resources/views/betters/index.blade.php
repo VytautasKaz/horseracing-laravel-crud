@@ -33,8 +33,8 @@
                     <td>{{ $better->bet }}</td>
                     <td>{{ $better->horse['name'] }}</td>
                     <td>
-                        <form action={{ route('better.destroy', $better->id) }} method="POST">
-                            <a class="btn btn-success" href={{ route('better.edit', $better->id) }}>Edit</a>
+                        <form action="{{ route('better.destroy', $better->id) }}" method="POST">
+                            <a class="btn btn-success" href="{{ route('better.edit', $better->id) }}">Edit</a>
                             @csrf @method('delete')
                             <input type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"
                                 value="Delete" />
