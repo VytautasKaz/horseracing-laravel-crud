@@ -9,7 +9,7 @@ CRUD (create, read, update, delete) app developed with Laravel framework. **Regi
 -   If you do not have composer installed on your system, install it (installation instructions [here](https://getcomposer.org/download)).
 -   Clone this repository or download it as a ZIP package.
 -   Open it with Visual Studio Code or your preferred code editor.
--   Create a fresh schema in you MySql server.
+-   Create a fresh schema in your MySQL server.
 -   Rename **'.env.example'** file to **'.env'** inside of the project's root directory and configure the database information.
 -   Using GitBash, CMD or other terminal in your code editor:
     -   if composer is installed locally: run **php <'path to composer.phar file location'>/composer.phar install**
